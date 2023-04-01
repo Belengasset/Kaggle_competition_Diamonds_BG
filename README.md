@@ -132,7 +132,10 @@ The parameters used to create the model are the following:
 - "max_features": [1, 2, 3, 4, 5, 6] --> np.sqrt(len(X_train.columns)): 3,1
 
 Here are the metrics of the best model:
+
 ![Best_model](images/Best_Model.png)
+
+The [submission1](https://github.com/Belengasset/Kaggle_competition_Diamonds_BG/blob/main/notebook/Submission%201/submission1%20RF.csv) is the .csv with the best predictions.
 
 
 ## Libraries
