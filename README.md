@@ -94,7 +94,7 @@ The method we apply is the **RandomForestRegressor**. It works by constructing a
 Then, we fit the model with `.fit` and then with `.predict` we apply it to the test and the train to predict the response variable, in our case the diamond price.
 
     d. KNeighbors
-The method we apply is the **KNeighborsRegressor**. It memorizes the training data and uses it to make predictions on new data. The prediction for a new input sample is obtained by finding the k closest samples in the training data, where k is a hyperparameter that needs to be specified. We've applied k=2 eighbors. The predicted output for the new input is then obtained by taking the average or weighted average of the output values of the 2 closest samples.
+The method we apply is the **KNeighborsRegressor**. It memorizes the training data and uses it to make predictions on new data. The prediction for a new input sample is obtained by finding the k closest samples in the training data, where k is a hyperparameter that needs to be specified. We've applied k=2 neighbors. The predicted output for the new input is then obtained by taking the average or weighted average of the output values of the 2 closest samples.
 
 The choice of the number of neighbors k is crucial in KNeighborsRegressor. A smaller k value can lead to a more flexible model that fits the training data more closely, but may be sensitive to noise and outliers. A larger k value can lead to a smoother and more stable model, but may sacrifice some of the accuracy and flexibility.
 
@@ -112,11 +112,28 @@ To check and see if each model was well fitted and predicted we have analyzed th
 To predict over the test and then upload the file for the competition, thanks to the pickles we standardize, no need to encode as I have done it previously and we apply the model we want. Then we generate a df with the id of the day and the price predicted by the model.
 
 ### *5. BEST MODEL*
-The final prediction of the RandomForestRegressor algorithm is obtained by averaging the predictions of all the decision trees in the forest. This averaging process helps to smooth out the noise in individual tree predictions and produce a more stable and accurate prediction. For this reasons my pbest predicted model was the one perform with the RandomForestRegressor. Here are the metrics:
-![Best_model](images/Best_Model.png)
-It was done in the submission 1, where the outliers where replaced by the median and the encoding was done with the LabelEconding methode.
 
-In the [link](https://public.tableau.com/app/profile/bel.n.gasset.cortejarena7615/viz/Diamonds_16800372564440/Presentacion?publish=yes), you can find more details about the best model that predicts the price of diamonds.
+The best model which predicts diamond prices corresponds to the first data treatment and the model predicted with the random forest.
+
+The data were processed as follows:
+1. Null management: NA
+2. Duplicates: NA
+3. Outliers: with a box plot I detected the outliers and decided to replace them with the median (the mean was not very far away, it is more sensitive to extreme values). 
+![Outliers](images/Outliers.png)
+Then, you can see in the [notebook](https://github.com/Belengasset/Kaggle_competition_Diamonds_BG/blob/main/notebook/Submission%201/Diamonds%20%7C%20datamad1022.ipynb) that there are new outliers once we replace the initial ones by the mean. What i do is to eliminate them.
+![Outliers2](images/Outliers2.png)
+4. Encoding: I've decided to use the **LabelEconding** method because I couldn't detect a big importance on the variables so the numerical values assigned to the categories are unique and arbitrary.
+
+Then once we have the data encoding and clean, we separte the train and test and run the model. The best one was the prediction with the RandomForestRegressor algorithm.
+
+The parameters used to create the model are the following:
+- "max_depth": [4, 6, 8, 10, 12, 14, 16, 18] --> print(regressor.tree_.max_depth)= 35/2
+- "min_samples_split": [10, 50, 100]
+- "max_features": [1, 2, 3, 4, 5, 6] --> np.sqrt(len(X_train.columns)): 3,1
+
+Here are the metrics of the best model:
+![Best_model](images/Best_Model.png)
+
 
 ## Libraries
 ----
