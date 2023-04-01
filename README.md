@@ -127,9 +127,14 @@ Then, you can see in the [notebook](https://github.com/Belengasset/Kaggle_compet
 Then once we have the data encoding and clean, we separte the train and test and run the model. The best one was the prediction with the RandomForestRegressor algorithm.
 
 The parameters used to create the model are the following:
-- "max_depth": [4, 6, 8, 10, 12, 14, 16, 18] --> print(regressor.tree_.max_depth)= 35/2
+- "max_depth": [4, 6, 8, 10, 12, 14, 16, 18]
 - "min_samples_split": [10, 50, 100]
-- "max_features": [1, 2, 3, 4, 5, 6] --> np.sqrt(len(X_train.columns)): 3,1
+- "max_features": [1, 2, 3, 4, 5, 6]
+
+*Best Model:*
+- max_depth=18
+- max_features=6
+- min_samples_split=10
 
 Here are the metrics of the best model:
 
