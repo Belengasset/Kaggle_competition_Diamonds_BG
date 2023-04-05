@@ -151,7 +151,6 @@ The [submission1](https://github.com/Belengasset/Kaggle_competition_Diamonds_BG/
 - [Seaborn](https://seaborn.pydata.org/): library is used for data visualization, including creating various types of plots such as scatterplots, line plots, bar plots, box plots, heatmaps, and more.
 - [Matplotlib](https://matplotlib.org/): library is used for data visualization, including creating various types of plots such as scatterplots, line plots, bar plots, box plots, histograms, and more.
 - [Scipy](https://scipy.org/): library is used for scientific computing, including optimization, linear algebra, integration, interpolation, special functions, FFT, signal and image processing, and more.
-- [Warnings](): warnings are messages that are generated to indicate that something unexpected has occurred, but the program can continue running.
 - [Scikit-learn](https://docs.python.org/3/library/warnings.html): library is used for machine learning, including data preprocessing, feature extraction, model selection, and evaluation. The provided algorithms include regression, classification, clustering, dimensionality reduction, and more.
 
 ## Contact
